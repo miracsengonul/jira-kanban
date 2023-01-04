@@ -37,7 +37,7 @@
           @change="dragged">
           <div
             v-for="list in section.tasks"
-            :key="`tasks-${list.title}-${list.id}`">
+            :key="`tasks-${list.title}-${list.id}-${randomNumber()}`">
             <div class="section-card-content">
               <div class="section-card-content-title">
                 {{ list.title }}
@@ -170,11 +170,15 @@ export default {
     this.groupedData = this.pureData;
   },
   updated() {
+    this.randomNumber();
     document.getElementsByClassName('add-section-button-area')[0].addEventListener('click', () => {
       document.getElementById('kanban-area').scrollLeft += document.getElementById('kanban-area').scrollWidth;
     });
   },
   methods: {
+    randomNumber() {
+      return Math.floor(Math.random() * 10);
+    },
     dragged() {
       this.updateKey += 1;
       EventBus.$emit('new-list-data', this.groupedData);
@@ -209,7 +213,7 @@ export default {
 
       this.groupedData[getGroupDataIndex].tasks.push({
         id: lastTotalCount,
-        title: `eQuota ${lastTotalCount} in ${this.groupedData[getGroupDataIndex].section}`,
+        title: `eQuota ${lastTotalCount}(${this.randomNumber()}) in ${this.groupedData[getGroupDataIndex].section}`,
         date: '05th Jan',
         creator: 'Mirac'
       });
