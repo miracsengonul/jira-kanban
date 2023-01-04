@@ -22,10 +22,12 @@
         </div>
         <div v-else
              class="section-head">
-          <div class="section-title" @dblclick="editSectionTitle(section)">
+          <div v-tooltip="'Double Click !'"
+               class="section-title"
+               @dblclick="editSectionTitle(section)">
             {{ section.section }}
           </div>
-          <div class="section-add-task">
+          <div v-tooltip.left="'Add A New Task'" class="section-add-task">
             <add-button fill-color="#667085" @click.native="addNewTask(section.id)" />
           </div>
         </div>
