@@ -148,6 +148,9 @@ export default {
   .company-item {
     margin: 0 !important;
     padding: 0 10px;
+    & > .dropdown-arrow {
+      transition: 0.3s;
+    }
     &:hover {
       background: #fff !important;
      & > .dropdown-arrow {
