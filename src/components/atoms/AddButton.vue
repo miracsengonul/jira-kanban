@@ -30,6 +30,7 @@ export default {
 <style lang="scss">
 .add-content-button {
   cursor: pointer;
+  user-select: none;
   display: flex;
   align-items: center;
   column-gap: 5px;
@@ -41,7 +42,7 @@ export default {
   border-radius: 5px;
   font-size: 13px;
   box-shadow: 2px 2px 1px rgba(52, 48, 48, 0.25);
-  transition: 0.3s;
+  transition: 0.2s;
   &:active {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
   }

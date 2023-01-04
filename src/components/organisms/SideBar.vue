@@ -172,6 +172,10 @@ export default {
       transition: 0.3s;
       margin: 16px 0 0 0;
 
+      &-text {
+        letter-spacing: -0.03em;
+      }
+
       &:hover {
         cursor: pointer;
         background: #f2f4f7;
