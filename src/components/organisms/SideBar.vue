@@ -28,7 +28,7 @@
         </div>
       </div>
       <menu-item text="Tasks"
-                 :badge="4"
+                 :badge="taskCount"
                  :active-menu="isActiveMenu('Kanban')">
         <svg width="18"
              height="18"
@@ -114,10 +114,21 @@
 
 <script>
 import MenuItem from '@/components/molecules/MenuItem.vue';
+import EventBus from '@/helpers/event-bus';
 
 export default {
   name: 'SideBar',
   components: { MenuItem },
+  data() {
+    return {
+      taskCount: 0
+    };
+  },
+  mounted() {
+    EventBus.$on('task-count', (count) => {
+      this.taskCount = count;
+    });
+  },
   methods: {
     isActiveMenu(menuName) {
       return this.$route.name === menuName;

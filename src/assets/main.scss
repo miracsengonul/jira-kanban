@@ -1,8 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&display=swap');
-html, body {
-  font-family: 'Karla', sans-serif;
-}
-
 #app {
   font-family: 'Karla', sans-serif;
+}
+html, body {
+  font-family: 'Karla', sans-serif;
+  overflow: hidden;
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  ::-webkit-scrollbar-thumb {
+    scrollbar-gutter: stable both-edges;
+    background: rgba(102, 112, 133, 0.4);
+    border-radius: 15px;
+    width: 5px;
+    height: 10px;
+    max-height: 10%;
+  }
+}
+
+.bg {
+  &-default {
+    background: #f2f4f7;
+  }
+  &-success {
+    background: #d1fadf;
+  }
+}
+.color {
+  &-default {
+    color: #475467;
+  }
+  &-success {
+    color: #12b76a;
+  }
+}
+
+@media screen and (max-width: 1367px) {
+  .kanban-cards {
+    min-height: calc(100vh - 40vh);
+    max-height: calc(100vh - 40vh);
+  }
+  .draggable-section {
+    min-height: 83% !important;
+  }
 }
