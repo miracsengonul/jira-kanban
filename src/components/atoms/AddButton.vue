@@ -40,13 +40,10 @@ export default {
   width: max-content;
   border-radius: 5px;
   font-size: 13px;
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.35);
+  box-shadow: 2px 2px 1px rgba(52, 48, 48, 0.25);
   transition: 0.3s;
-  &:hover {
-    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.65);
-  }
   &:active {
-    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
   }
 }
 </style>
