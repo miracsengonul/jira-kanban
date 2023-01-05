@@ -1,4 +1,7 @@
-# task
+# eQuota - Case Study #4
+
+![image](./src/assets/document/screenshot.png)
+
 
 ## Project setup
 ```
