@@ -8,7 +8,10 @@ const routes = [
   {
     path: '/',
     name: 'Kanban',
-    component: Kanban
+    component: Kanban,
+    meta: {
+      title: 'Kanban Page'
+    }
   }
 ];
 
@@ -17,5 +20,8 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
-
+router.beforeEach((toRoute, fromRoute, next) => {
+  window.document.title = toRoute.meta.title;
+  next();
+});
 export default router;
