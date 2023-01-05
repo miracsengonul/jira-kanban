@@ -10,7 +10,7 @@ html, body {
     height: 5px;
   }
   ::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
     scrollbar-gutter: stable both-edges;
@@ -41,11 +41,12 @@ html, body {
 
 @media screen and (max-width: 1367px) {
   .kanban-cards {
-    min-height: calc(100vh - 40vh);
-    max-height: calc(100vh - 40vh);
+    min-height: calc(100vh - 40vh) !important;
+    max-height: calc(100vh - 40vh) !important;
   }
   .draggable-section {
-    min-height: 83% !important;
+    min-height: calc(100vh - 40vh) !important;
+    max-height: calc(100vh - 40vh) !important;
   }
 }
 

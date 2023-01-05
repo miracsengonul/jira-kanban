@@ -33,13 +33,15 @@
         </div>
 
         <draggable
+          :id="`draggable-section-${section.id}`"
           class="draggable-section"
           :list="section.tasks"
           :group="{ name: 'section' }"
           @change="dragged">
           <div
             v-for="list in section.tasks"
-            :key="`tasks-${list.title}-${list.id}-${randomNumber()}`">
+            :key="`tasks-${list.title}-${list.id}-${randomNumber()}`"
+            style="min-width: inherit;">
             <div class="section-card-content">
               <div class="section-card-content-title">
                 {{ list.title }}
@@ -229,6 +231,10 @@ export default {
       });
 
       EventBus.$emit('task-count', totalTaskCount);
+
+      setTimeout(() => {
+        document.getElementById(`draggable-section-${sectionId}`).scrollTop = document.getElementById(`draggable-section-${sectionId}`).scrollHeight;
+      }, 100);
     }
   }
 };
@@ -239,41 +245,26 @@ export default {
   column-gap: 36px;
   user-select: none;
   min-height: calc(100vh - 26.5vh);
-  max-height: calc(100vh - 26.5vh);
-
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    scrollbar-gutter: stable both-edges;
-    background: rgba(136, 136, 136, 0.51);
-    border-radius: 15px;
-    width: 5px;
-    height: 10px;
-    max-height: 10%;
-  }
+  max-height: calc(100vh - 36.5vh);
 
   .draggable-section {
-    min-width: inherit;
-    min-height: 90%;
-  }
-  .section-cards {
     overflow: hidden;
+    min-width: inherit;
+    min-height: calc(100vh - 27vh);
+    max-height: calc(100vh - 27vh);
+    padding: 0 1px 10px 0;
+    &:hover {
+      overflow-y: auto;
+    }
+  }
+
+  .section-cards {
     cursor: move;
     min-width: 320px;
     max-width: 320px;
     padding: 0 0 10px 0;
     &:last-of-type {
       padding: 0 80px 10px 0;
-    }
-    &:hover {
-      overflow-y: auto;
     }
 
     .editable-section-title-input {
@@ -301,7 +292,11 @@ export default {
       min-width: inherit;
       width: 100%;
       .section-title {
+        display:inline-block;
         width: fit-content;
+        white-space: nowrap;
+        overflow:hidden !important;
+        text-overflow: ellipsis;
         &:hover {
           cursor: text;
         }
@@ -330,6 +325,11 @@ export default {
         line-height: 150%;
         letter-spacing: -0.02em;
         color: #1D2939;
+        display:inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow:hidden !important;
+        text-overflow: ellipsis;
       }
 
       .publish-information {
