@@ -1,4 +1,4 @@
-# eQuota - Case Study #4
+# Basic Task Management with Kanban (Vue2)
 
 ![image](./src/assets/document/screenshot.png)
 
