@@ -62,7 +62,7 @@
     "pre-commit": "lint-staged"
   },
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
