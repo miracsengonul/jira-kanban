@@ -61,6 +61,9 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "engines": {
+    "node": "14"
+  },
   "lint-staged": {
     "*.{js,jsx,vue}": [
       "vue-cli-service lint",
